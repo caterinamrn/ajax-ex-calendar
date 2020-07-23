@@ -1,0 +1,30 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#container i {
+  font-size: 50px;
+  margin: 0 20px;
+}
+#container .calendario {
+  width: 80%;
+}
+#container .calendario ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+#container .calendario ul li{
+  width: 100px;
+  height: 70px;
+  border: 1px black solid;
+  text-align: center;
+  line-height: 40px;
+}
