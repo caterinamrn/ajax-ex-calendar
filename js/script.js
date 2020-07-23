@@ -1,3 +1,11 @@
+// function verificaData(holDateConfronto){
+//   var i = 0;
+//   while (i < 31 && holDateConfronto == (i+1)) {
+//     console.log("ok",i+1);
+//     i++;
+//   }
+// }
+
 function getDays() {
   var gennaio = moment( 1 + "/" + 2018, "M/YYYY");
   var days = gennaio.daysInMonth();
@@ -41,14 +49,16 @@ function holidays(month) {
           console.log(mom);
           var holDateConfronto = parseInt(mom.format("DD"));
           console.log(holDateConfronto);
-          for (var i = 0; i < 31 && holDateConfronto == (i+1); i++) {
-            var targetDay = $("li."+(i+1));
+          for (var j = 0; j < 31 && holDateConfronto == (j+1); j++) {
+            console.log("bravo",j+1);
+            var targetDay = $("li."+(j+1));
             console.log(targetDay);
-            console.log(holDateConfronto == (i+1));
-            if (holDateConfronto == (i+1)) {
+            console.log(holDateConfronto == (j+1));
+            if (holDateConfronto == (j+1)) {
               targetDay.append("<span> festività: "+holiday["name"]+"</span>");
             }
           }
+          // verificaData(holDateConfronto);
 
         }
 
