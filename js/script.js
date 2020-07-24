@@ -1,18 +1,36 @@
-// function verificaData(holDateConfronto){
-//   var i = 0;
-//   while (i < 31 && holDateConfronto == (i+1)) {
-//     console.log("ok",i+1);
-//     i++;
-//   }
-// }
+function daysEachMonth() {
+  for (var i = 0; i < 12; i++) {
+    getDays(i);
+  }
+}
 
-function getDays() {
-  var gennaio = moment( 1 + "/" + 2018, "M/YYYY");
-  var days = gennaio.daysInMonth();
-  var month = 0;
+function getMonth2018() {
+  var months = moment.months();
+  console.log(months);
+
+  var target = $(".calendario");
+  var template = $("#month-template").html();
+  var compiled = Handlebars.compile(template);
+
+  for (var i = 0; i < months.length; i++) {
+    var monthname = {
+      "month" : months[i],
+      "monthnum": i
+    }
+    var monthHtml = compiled(monthname);
+    target.append(monthHtml);
+  }
+  var jen = $(".calendario .January").addClass("active").addClass("first");
+  var dec = $(".calendario .December").addClass("last");
+}
+
+function getDays(index) {
+  var monthselect = moment( (index+1) + "/" + 2018, "M/YYYY");
+  var days = monthselect.daysInMonth();
+  var month = index;
   console.log(days);
 
-  var monthTarget = $("#gennaio");
+  var monthTarget = $("#"+index);
   var template = $("#day-template").html();
   var compiled = Handlebars.compile(template);
 
@@ -47,23 +65,20 @@ function holidays(month) {
           console.log(holDate);
           var mom = moment(holDate, "YYYY-MM-DD");
           console.log(mom);
+          var rightMonth = mom.format("MM");
+          // var targetMonth = $("ul#"+(rightMonth-1));
           var holDateConfronto = parseInt(mom.format("DD"));
           console.log(holDateConfronto);
           for (var j = 0; j < 31; j++) {
             if (holDateConfronto == (j+1)) {
               console.log("bravo",j+1);
-              var targetDay = $("li."+(j+1));
+              var targetDay = $("ul#"+(rightMonth-1)+" li."+(j+1));
               console.log(targetDay);
               console.log(holDateConfronto == (j+1));
-              targetDay.append("<span> festività: "+holiday["name"]+"</span>");
+               // targetMonth.children(targetDay).append("<span>"+holiday["name"]+"</span>");
+               targetDay.append("<span>"+holiday["name"]+"</span>");
             }
           }
-          // verificaData(holDateConfronto);
-        //   var j = 0;
-        //     while (j < 31 && holDateConfronto == (j+1)) {
-        //       console.log("ok",j+1);
-        //       j++; }
-        // }
 
       }
     }
@@ -79,7 +94,9 @@ function holidays(month) {
   });
 }
 function init() {
-  getDays();
+  getMonth2018();
+  daysEachMonth();
+  // getDays();
 }
 
 $(document).ready(init);

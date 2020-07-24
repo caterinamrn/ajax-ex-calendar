@@ -32,3 +32,9 @@
   display: block;
   line-height: 20px;
 }
+.calendario > div {
+  display: none;
+}
+.calendario > div.active {
+  display: block;
+}

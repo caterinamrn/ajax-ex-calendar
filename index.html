@@ -11,14 +11,19 @@
     <script  id="day-template" type="text/x-handlebars-template">
       <li class="{{value}}">{{value}}</li>
     </script>
+    <script  id="month-template" type="text/x-handlebars-template">
+      <div class="{{month}}">
+        <h2>{{month}}</h2>
+        <ul id="{{monthnum}}">
+        </ul>
+      </div>
+    </script>
   </head>
   <body>
+    <h1>Calendario 2018</h1>
     <div id="container">
       <i class="fas fa-chevron-circle-left"></i>
       <div class="calendario">
-        <h2>GENNAIO</h2>
-        <ul id="gennaio">
-        </ul>
       </div>
       <i class="fas fa-chevron-circle-right"></i>
     </div>
