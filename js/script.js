@@ -49,20 +49,24 @@ function holidays(month) {
           console.log(mom);
           var holDateConfronto = parseInt(mom.format("DD"));
           console.log(holDateConfronto);
-          for (var j = 0; j < 31 && holDateConfronto == (j+1); j++) {
-            console.log("bravo",j+1);
-            var targetDay = $("li."+(j+1));
-            console.log(targetDay);
-            console.log(holDateConfronto == (j+1));
+          for (var j = 0; j < 31; j++) {
             if (holDateConfronto == (j+1)) {
+              console.log("bravo",j+1);
+              var targetDay = $("li."+(j+1));
+              console.log(targetDay);
+              console.log(holDateConfronto == (j+1));
               targetDay.append("<span> festività: "+holiday["name"]+"</span>");
             }
           }
           // verificaData(holDateConfronto);
-
-        }
+        //   var j = 0;
+        //     while (j < 31 && holDateConfronto == (j+1)) {
+        //       console.log("ok",j+1);
+        //       j++; }
+        // }
 
       }
+    }
       else {
         console.log("error");
       }

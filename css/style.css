@@ -26,5 +26,9 @@
   height: 70px;
   border: 1px black solid;
   text-align: center;
-  line-height: 40px;
+  line-height: 30px;
+}
+#container .calendario ul li span {
+  display: block;
+  line-height: 20px;
 }
