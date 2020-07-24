@@ -12,6 +12,7 @@
 #container i {
   font-size: 50px;
   margin: 0 20px;
+  cursor: pointer;
 }
 #container .calendario {
   width: 80%;
