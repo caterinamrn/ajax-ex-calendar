@@ -1,14 +1,28 @@
 function nextMonth() {
-  console.log("prossimo");
+  // console.log("prossimo");
   var activeMonth = $(".calendario div.active");
-  activeMonth.removeClass("active");
-  activeMonth.next("div").addClass("active");
+  var ifLast = activeMonth.hasClass("last");
+  if (ifLast) {
+    alert("finito anno 2018, non è presente il calendario del 2019");
+  }
+  else {
+    activeMonth.removeClass("active");
+    activeMonth.next("div").addClass("active");
+  }
+
 }
 function prevMonth() {
-  console.log("precedente");
+  // console.log("precedente");
   var activeMonth = $(".calendario div.active");
-  activeMonth.removeClass("active");
-  activeMonth.prev("div").addClass("active");
+  var isFirst = activeMonth.hasClass("first");
+  if (isFirst) {
+    alert("non è presente l'anno precedente");
+  }
+  else {
+    activeMonth.removeClass("active");
+    activeMonth.prev("div").addClass("active");
+  }
+
 }
 
 function getEventListeners() {
