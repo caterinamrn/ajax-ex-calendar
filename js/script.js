@@ -30,6 +30,18 @@ function getEventListeners() {
   var prevBtn = $(".fas.fa-chevron-circle-left");
   nextBtn.click(nextMonth);
   prevBtn.click(prevMonth);
+
+  $(document).keydown(function(){
+    var key = event.which;
+    console.log(key);
+    if (key == 39) {
+      nextMonth();
+    }
+    else if (key == 37) {
+      prevMonth();
+    }
+  });
+
 }
 
 function daysEachMonth() {
